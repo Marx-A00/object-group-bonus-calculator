@@ -34,6 +34,10 @@ const employees = [
 
 console.log('array of employee data: ',  employees );
 
+for(let employee of employees){
+  console.log(employee);
+}
+
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
@@ -48,10 +52,68 @@ console.log('array of employee data: ',  employees );
 
 // This function will calculate 1 employee's bonus!
 //
-function calculateIndividualEmployeeBonus( employee ) {  
-  // your logic here
+
+let employeeBonus = {
   
+}
+
+function calculateIndividualEmployeeBonus(employee) {
+  let employeeBonus = {
+    name: employee.name,
+
+  };
+  console.log(employee);
+
+  return employeeBonus;
+}
+
+
+function calculateBonusPercentage(employee){
+  let bonusPercentage = 0;
+
+  if(employee.reviewRating <= 2){
+    bonusPercentage = 0;
+  }
+  else if(employee.reviewRating === 3){
+    bonusPercentage = .04;
+  }
+  else if(employee.reviewRating === 4){
+    bonusPercentage = .06;
+  }
+  else if(employee.reviewRating === 5){
+    bonusPercentage = .1;
+  }
+  if(employee.annualSalary > 65000){
+    bonusPercentage -= .01;
+  }
+
+  if(employee.employeeNumber.length === 4){
+
+    bonusPercentage += .05;
+  }
+  if(bonusPercentage > .13){
+    bonusPercentage = .13;
+  }
+  else if(bonusPercentage < 0){
+    bonusPercentage = 0;
+  }
+  let employeeBonus.bonusPercentage = bonusPercentage;
   
-  // return new object with bonus results
+
+
+
+  return bonusPercentage;
 
 }
+
+function calculateBonusTotal(employee,bonusPercentage){
+  employee.annualSalary * (bonusPercentage)
+
+
+
+}
+// console.log(employees[0].employeeNumber.length);
+
+// console.log(calculateIndividualEmployeeBonus(employees[3]));
+console.log("Expecting .09: ",calculateBonusPercentage(employees[0]));
+console.log("Expecting .06: ",calculateBonusPercentage(employees[1]));
